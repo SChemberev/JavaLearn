@@ -11,7 +11,6 @@ public class bubbleSort
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.print("Введите размерность массива: ");
-        int n = 10;
         int arrRng = scan.nextInt();
         if (arrRng > 0)
         {
@@ -19,21 +18,22 @@ public class bubbleSort
             Random rnd = new Random();
             for (int i = 0; i <= arrRng - 1; i++) //заполнение массива целыми числами
             {
-                arr[i] = rnd.nextInt(n);
+                arr[i] = rnd.nextInt();
             }
-            System.out.println(Arrays.toString(arr));
-            for (int i = 0; i <= arrRng; i++)
+            System.out.println("Исходный массив: " + Arrays.toString(arr));
+            for (int i = 0; i < arr.length - 1; i++) //сортировка массива
             {
-                int firstInt = arr[i];
-                int secondInt = arr[i + 1];
-                if(arr[i] > arr[i + 1])
+                for (int j = 0; j < arr.length - 1; j++)
                 {
-                    arr[i] = secondInt;
-                    arr[i + 1] = firstInt;
-                    System.out.println(Arrays.toString(arr));
+                    if (arr[j] > arr[j + 1])
+                    {
+                        int defVal = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = defVal;
+                    }
                 }
             }
-            System.out.println(Arrays.toString(arr));
+            System.out.print("Отсортированный массив: " + Arrays.toString(arr));
         }
         else
         {
