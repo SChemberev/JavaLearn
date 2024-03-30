@@ -15,6 +15,7 @@ public class MaxMininArray
     public static void main(String[] args)
     {
         Scanner scan = new Scanner(System.in);
+        System.out.print("Введите размерность массива: ");
         int itemCount = scan.nextInt();
         double[] rndArr = new double[itemCount];
         double avgVal = 0;
