@@ -14,11 +14,20 @@ public class simpleNumbers
         {
             inpArr[i] = i;
         }
-        for (int i = 2; i <= 100; i++)
+        for (int i = 2; i <= inpArr.length - 1; i++) //поиск простых чисел
         {
-            if((inpArr[i] % 2 != 0) && (inpArr[i] % 3 != 0) && (inpArr[i] % 5 != 0))
+            boolean isSimple = true;
+            for (int j = 2; j < i; j++)
             {
-                System.out.print(inpArr[i] + " ");
+                if (i % j == 0)
+                {
+                    isSimple = false;
+                    break;
+                }
+            }
+            if(isSimple)
+            {
+                System.out.print(i + " ");
             }
         }
     }
