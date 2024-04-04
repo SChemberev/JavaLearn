@@ -33,14 +33,7 @@ public class depositPercentCounter
         System.out.println();
         for(int i = 0; i < years; i++) //вывод двумерного массива
         {
-            if(i < 10)
-            {
-                System.out.print(i + "   |");
-            }
-            else
-            {
-                System.out.print(i + "  |");
-            }
+            System.out.format("%5s", i + "|");
             for (int j = 0; j < 20; j++) {
                 if (i == 0) {
                     System.out.format( "%10s", j + 1 + "%");
@@ -57,23 +50,32 @@ public class depositPercentCounter
 
     }
 
-    private static void saveArrayToFile(double[][] arr, File path) {
-        try {
+    private static void saveArrayToFile(double[][] arr, File path)
+    {
+        try
+        {
             BufferedWriter bw = new BufferedWriter(new FileWriter(path));
-            bw.write(String.valueOf(arr.length));
-            bw.newLine();
-            bw.write(String.valueOf(arr[0].length));
-            bw.newLine();
-            for (int i = 0; i < arr.length; i++) {
-                for (int j = 0; j < arr[0].length; j++) {
-                    bw.write(String.valueOf(arr[i][j]));
-                    bw.newLine();
+            for (int i = 0; i < arr.length; i++)
+            {
+                bw.write(String.format("%5s", i + "|"));
+                for (int j = 0; j < arr[0].length; j++)
+                {
+                    if(i == 0)
+                    {
+                        bw.write(String.format("%10s", j + 1 + "%|"));
+                    }
+                    else
+                    {
+                        bw.write(String.format("%10s", (String.format("%.2f", arr[i][j]) + "|")));
+                    }
                 }
                 bw.newLine();
             }
             bw.flush();
             bw.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             // тут совсем не обязательно писать System.out.println, оно и так выведет ошибку в консоль
             e.printStackTrace();
         }
