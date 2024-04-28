@@ -76,7 +76,6 @@ public class depositPercentCounter
         }
         catch (IOException e)
         {
-            // тут совсем не обязательно писать System.out.println, оно и так выведет ошибку в консоль
             e.printStackTrace();
         }
     }
