@@ -13,8 +13,23 @@ public class binarySearch {
         return -1;
     }
 
-    public int binSearch(int[] inputArr, int key){ // двоичный поиск
-        Arrays.sort(inputArr);
+    public static int binSearch(int[] inputArr, int key){
+        return binSearch(inputArr, key, 0, inputArr.length);
+    }
+
+    private static int binSearch(int[] inputArr, int key, int start, int end){ // двоичный поиск
+        int half = (start + end) / 2;
+        if(start > end){
+            return -1;
+        }
+        if (key == inputArr[half]){
+            return half;
+        } else if (key < inputArr[half]) {
+            return binSearch(inputArr, key, start, half -1);
+        }
+        else {
+            return binSearch(inputArr, key, half + 1, end);
+        }
     }
 }
 
