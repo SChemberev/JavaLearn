@@ -7,4 +7,19 @@ public class Recursion {
         }
         return nString(n-1) + " " + n;
     }
+
+    public String aToB(int A, int B){ // вывести числа от А до В включительно
+        if (A > B){
+            if (A == B){
+                return Integer.toString(A);
+            }
+            return A + " " + aToB(A - 1, B);
+        }
+        else {
+            if (A == B){
+                return Integer.toString(A);
+            }
+            return aToB(A + 1, B) + " " + B;
+        }
+    }
 }
