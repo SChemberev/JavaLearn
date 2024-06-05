@@ -46,4 +46,22 @@ public class Recursion {
             return degreeOfTwo(n / 2);
         }
     }
+
+    public String isSimple(int a, int b){ // проверка числа на простоту, параметр b равен 2 при инициализации
+        if(a < 2){
+            return "NO";
+        }
+        else if (a == 2) {
+            return "YES";
+        }
+        else if (a % b == 0){
+            return "NO";
+        }
+        else if(b < a/2){
+            return isSimple(a, b + 1);
+        }
+        else {
+            return "YES";
+        }
+    }
 }
