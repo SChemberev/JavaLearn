@@ -34,4 +34,16 @@ public class Recursion {
             return (Akkerman(m - 1, Akkerman(m, n - 1)));
         }
     }
+
+    public String degreeOfTwo(int n){ // является ли число степенью двойки
+        if (n == 1){
+            return "YES";
+        }
+        else if (n % 2 != 0){
+            return "NO";
+        }
+        else {
+            return degreeOfTwo(n / 2);
+        }
+    }
 }
